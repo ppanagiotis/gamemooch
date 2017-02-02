@@ -1,14 +1,22 @@
 <%= form_tag(igdb_games_path, :method => "get", id: "search-form") do %>
-<%= text_field_tag :search, params[:search], placeholder: "Search Games" %>
-<%= submit_tag "Search" %>
+	<div class="row">
+		<div class="col-lg-6">
+			<div class="input-group">
+				<%= text_field_tag :search, params[:search], placeholder: "Search Games You own", class: "form-control" %>      <span class="input-group-btn">
+					<%= submit_tag "Search" , class: "btn btn-default"%>
+				</span>
+			</div><!-- /input-group -->
+		</div><!-- /.col-lg-6 -->
+	</div><!-- /.row -->
 <% end %>
+<br>
 <div class="row games">
 	<% if @games.present? %>
 		<% @games.each do |game| %>
 			<div class="col-xs-6 col-md-3">
 				<div class="thumbnail">
 					<% if game['cover'].nil? %>
-						<%= image_tag '//images.igdb.com/igdb/image/upload/t_thumb/nocover_qhhlj6.jpg' %>
+						<%= image_tag '//images.igdb.com/igdb/image/upload/t_cover_med/nocover_qhhlj6.jpg' %>
 					<% else %>
 						<%= image_tag game['cover']['url'] %>
 					<% end %>
