@@ -1,2 +1,57 @@
+$navbar-default-bg: rgba(0, 0, 0, 0.8);
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+#logo {
+	float: left;
+	font-size: 1.7em;
+	color: #fff;
+	letter-spacing: -1px;
+	font-weight: bold;
+}
+
+.navbar-default .navbar-nav > li > a {
+	font-size: 1.2em;
+	color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+	font-size: 1.3em;
+	color: #fff;
+}
+
+.center {
+	text-align: center;
+}
+
+body {
+	background-image: asset-url('ps4background.jpg');
+	background-size: cover;
+	padding-bottom: 70px;
+}
+
+.jumbotron {
+	background-color: gray;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.jumbotron h1 {
+	color: #fff;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: -1px;
+	font-weight: bold;
+
+}
+
+footer {
+	margin-top: -45px;
+	padding-top: 5px;
+	border-top: 1px solid #fff;
+	color: #fff;
+}
+
+footer a:hover {
+	text-decoration: none
+}
