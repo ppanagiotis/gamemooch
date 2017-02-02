@@ -1,0 +1,17 @@
+<%= form_tag(igdb_games_path, :method => "get", id: "search-form") do %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Games" %>
+<%= submit_tag "Search" %>
+<% end %>
+<% if @games.present? %>
+  <% @games.each do |game| %>
+    <%= game['name'] %><br>
+    <% if game['cover'].nil? %>
+        <%= image_tag '//images.igdb.com/igdb/image/upload/t_thumb/nocover_qhhlj6.jpg' %>
+    <% else %>
+        <%= image_tag game['cover']['url'] %>
+    <% end %>
+    <br>
+  <% end %>
+<% else %>
+  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+<% end %>
