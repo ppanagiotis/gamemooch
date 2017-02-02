@@ -2,16 +2,23 @@
 <%= text_field_tag :search, params[:search], placeholder: "Search Games" %>
 <%= submit_tag "Search" %>
 <% end %>
-<% if @games.present? %>
-  <% @games.each do |game| %>
-    <%= game['name'] %><br>
-    <% if game['cover'].nil? %>
-        <%= image_tag '//images.igdb.com/igdb/image/upload/t_thumb/nocover_qhhlj6.jpg' %>
-    <% else %>
-        <%= image_tag game['cover']['url'] %>
-    <% end %>
-    <br>
-  <% end %>
+<div class="row games">
+	<% if @games.present? %>
+		<% @games.each do |game| %>
+			<div class="col-xs-6 col-md-3">
+				<div class="thumbnail">
+					<% if game['cover'].nil? %>
+						<%= image_tag '//images.igdb.com/igdb/image/upload/t_thumb/nocover_qhhlj6.jpg' %>
+					<% else %>
+						<%= image_tag game['cover']['url'] %>
+					<% end %>
+					<div class="caption">
+						<%= game['name'] %>
+					</div>
+				</div>
+			</div>
+		<% end %>
+</div>
 <% else %>
-  <p>There are no posts containing the term(s) <%= params[:search] %>.</p>
+	<p>There are no posts containing the term(s) <%= params[:search] %>.</p>
 <% end %>

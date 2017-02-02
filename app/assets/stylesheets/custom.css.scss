@@ -55,3 +55,18 @@ footer {
 footer a:hover {
 	text-decoration: none
 }
+
+.thumbnail {
+	background: rgba(0, 0, 0, 0.7);
+	border: 0px;
+	border-radius: 10px;
+	line-height: 1;
+	padding: 15px;
+}
+
+.thumbnail .caption {
+	color: white;
+	text-align: center;
+	font-weight: bold;
+}
+
