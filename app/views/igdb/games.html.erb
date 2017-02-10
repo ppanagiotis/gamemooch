@@ -10,4 +10,7 @@
 	</div><!-- /.row -->
 <% end %>
 <br>
-<%= select_tag "selectImage", options_for_select(@games.map  { |image| [{ data: { 'img-src': image['cover']['url'] } }, image['name'] , image['id'] ] }), multiple: true, class: 'image-picker show-labels show-html'%>
+<%= form_tag(new_game_path, :method => "get") do %>
+	<%= select_tag "selectImage", options_for_select(@games.map  { |image| [{ data: { 'img-src': image['cover']['url'] } }, image['name'] , [ 'id' => image['id'], 'name' =>  image['name'], 'cover' => image['cover']['url'] ] ] }), multiple: true, class: 'image-picker show-labels show-html'%>
+<%= submit_tag "Save Games", class: "btn btn-lg" %>
+<% end %>
