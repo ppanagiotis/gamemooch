@@ -2,6 +2,7 @@ $navbar-default-bg: rgba(0, 0, 0, 0.8);
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "image-picker";
 
 #logo {
 	float: left;
@@ -58,15 +59,17 @@ footer a:hover {
 
 .thumbnail {
 	background: rgba(0, 0, 0, 0.7);
-	border: 0px;
 	border-radius: 10px;
 	line-height: 1;
-	padding: 15px;
 }
 
-.thumbnail .caption {
-	color: white;
+ul.thumbnails.image_picker_selector li .thumbnail.selected {
+	opacity: 0.4;
+}
+
+.thumbnail p {
 	text-align: center;
-	font-weight: bold;
+	margin: 1em;
+	width: 150px;
+	color: white;
 }
-

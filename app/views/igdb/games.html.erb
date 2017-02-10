@@ -10,23 +10,4 @@
 	</div><!-- /.row -->
 <% end %>
 <br>
-<div class="row games">
-	<% if @games.present? %>
-		<% @games.each do |game| %>
-			<div class="col-xs-6 col-md-3">
-				<div class="thumbnail">
-					<% if game['cover'].nil? %>
-						<%= image_tag '//images.igdb.com/igdb/image/upload/t_cover_med/nocover_qhhlj6.jpg' %>
-					<% else %>
-						<%= image_tag game['cover']['url'] %>
-					<% end %>
-					<div class="caption">
-						<%= game['name'] %>
-					</div>
-				</div>
-			</div>
-		<% end %>
-</div>
-<% else %>
-	<p>There are no posts containing the term(s) <%= params[:search] %>.</p>
-<% end %>
+<%= select_tag "selectImage", options_for_select(@games.map  { |image| [{ data: { 'img-src': image['cover']['url'] } }, image['name'] , image['id'] ] }), multiple: true, class: 'image-picker show-labels show-html'%>

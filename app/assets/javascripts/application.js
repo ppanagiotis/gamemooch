@@ -12,6 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require masonry/masonry.min
+//= require imagesloaded
+//= require image-picker
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require_tree .
