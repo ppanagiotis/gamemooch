@@ -18,6 +18,7 @@ module IgdbHelper
       @result.each do |entry|
         if !entry['cover'].nil?
           entry['cover']['url'].gsub! 't_thumb', 't_cover_med'
+        else entry['cover'] = {'url' => "//images.igdb.com/igdb/image/upload/t_cover_med/nocover_qhhlj6.jpg" }
         end
       end
     end
