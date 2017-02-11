@@ -1,5 +1,6 @@
 class GamesController < ApplicationController
 
+  before_action :authenticate_user!
   def index
     @games = Game.paginate(page: params[:page], per_page: 20)
   end
