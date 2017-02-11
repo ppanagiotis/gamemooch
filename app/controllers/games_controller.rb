@@ -8,13 +8,20 @@ class GamesController < ApplicationController
     response = params[:selectImage]
     response.each do |igdb_game|
       @game = Game.new(game_params)
+      @game.user = current_user
       game = Hash[*eval(igdb_game)]
       @game.title= game['name']
       @game.url = game['cover']
       @game.igdb_id = game['id']
       @game.save
     end
-    redirect_to games_path
+      if @game.save
+        flash[:success] = "Saved successfully"
+        redirect_to games_path
+      else
+        flash[:error] = "Games not saved"
+        redirect_to request.env["HTTP_REFERER"]
+      end
   end
 
 private
