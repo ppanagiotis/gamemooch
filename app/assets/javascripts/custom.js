@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
     $("#selectImage").imagepicker({
         hide_select: true,
         show_label  : true
