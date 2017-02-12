@@ -73,3 +73,24 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
 	width: 150px;
 	color: white;
 }
+
+
+/* Modal */
+#myModal .modal-dialog  {
+  width:500px;
+}
+#myModal .modal-content  {
+}
+
+#myModal .modal-body {
+  padding: 10px;
+}
+#myModal .modal-header {
+  padding: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  }
+
+#myModal .modal-footer {
+  padding: 0px;
+  border-top: 1px solid #e5e5e5;
+}

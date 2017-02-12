@@ -1,0 +1,73 @@
+<!-- Modal -->
+<div class="modal fade bs-modal-sm" id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+				<div class="bs-example bs-example-tabs">
+					<ul id="myTab" class="nav nav-tabs">
+						<li class="active"><a href="#signin" data-toggle="tab">Sign In</a></li>
+						<li class=""><a href="#signup" data-toggle="tab">Sign Up</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="modal-body">
+				<div id="myTabContent" class="tab-content">
+					<div class="tab-pane fade active in" id="signin">
+						<div class="border-form-div">
+							<h1>Sign in</h1>
+							<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+								<div class="form-group">
+									<input autocomplete="on" class="form-control" autofocus="autofocus" placeholder="Usename or Email" type="text" name="user[login]" id="user_login">
+								</div>
+								<div class="form-group">
+									<input autocomplete="off" class="form-control" placeholder="Password" type="password" name="user[password]" id="user_password">
+								</div>
+								<div class="field">
+									<label for="user_remember_me">Remember me</label>
+									<input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
+								</div>
+								<%= f.submit "Sign in", class: 'btn btn-primary btn-lg center-block' %>
+							<% end %>
+						</div>
+					</div>
+					<div class="tab-pane fade" id="signup">
+						<div class="border-form-div">
+							<h1>Sign up</h1>
+							<div class="container-fluid">
+								<%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {class: "form-horizontal", role: "form"}) do |f| %>
+									<div class="row">
+										<div class="col-md-5">
+
+											<div class="form-group">
+												<input class="form-control" placeholder="Enter username" autofocus="autofocus" type="text" name="user[username]" id="user_username">
+											</div>
+											<div class="form-group">
+												<input class="form-control" placeholder="Enter email" type="email" value="" name="user[email]" id="user_email">
+											</div>
+											<div class="form-group">
+												<input autocomplete="off" class="form-control" placeholder="Enter password" type="password" name="user[password]" id="user_password">
+											</div>
+											<div class="form-group">
+												<input autocomplete="off" class="form-control" placeholder="Renter password" type="password" name="user[password_confirmation]" id="user_password_confirmation">
+											</div>
+										</div>
+										<div class="col-md-5 col-md-offset-2">
+											<div class="form-group">
+												<input class="form-control" placeholder="Enter firstname" autofocus="autofocus" type="text" name="user[first_name]" id="user_first_name">
+											</div>
+											<div class="form-group">
+												<input class="form-control" placeholder="Enter lastname" autofocus="autofocus" type="text" name="user[last_name]" id="user_last_name">
+											</div>
+										</div>
+									</div>
+									<%= f.submit "Sign up", class: 'btn btn-primary btn-lg center-block' %>
+								<% end %>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
