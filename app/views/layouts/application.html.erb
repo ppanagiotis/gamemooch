@@ -11,8 +11,9 @@
   <body>
     <%= render 'layouts/navigation' %>
     <%= render 'layouts/modals' %>
-    <%= render 'layouts/messages' %>
     <div class="container">
+	    <%= render 'layouts/messages' %>
+	    <%= devise_error_messages! %>
 	    <%= yield %>
     </div>
     <%= render 'layouts/footer' %>
