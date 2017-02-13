@@ -16,19 +16,36 @@
 					<div class="tab-pane fade active in" id="signin">
 						<div class="border-form-div">
 							<h1>Sign in</h1>
-							<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
-								<div class="form-group">
-									<input autocomplete="on" class="form-control" autofocus="autofocus" placeholder="Usename or Email" type="text" name="user[login]" id="user_login">
+							<div class="container-fluid">
+								<div class="row">
+									<div class="col-md-6">
+										<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+											<div class="form-group">
+												<input autocomplete="on" class="form-control" autofocus="autofocus" placeholder="Usename or Email" type="text" name="user[login]" id="user_login">
+											</div>
+											<div class="form-group">
+												<input autocomplete="off" class="form-control" placeholder="Password" type="password" name="user[password]" id="user_password">
+											</div>
+											<%= f.submit "Sign in", class: 'btn btn-primary btn-block center-block' %>
+											<div class="field">
+												<%= f.label :remember_me %>
+												<%= f.check_box :remember_me %>
+											</div>
+										<% end %>
+									</div>
+									<div class="col-md-6 col-md-offset0">
+										<%= link_to user_facebook_omniauth_authorize_path, :class => "btn btn-block btn-social btn-facebook" do %>
+											<span class="fa fa-facebook"></span> Facebook
+										<% end %>
+										<%= link_to user_google_oauth2_omniauth_authorize_path, :class => "btn btn-block btn-social btn-google" do %>
+											<span class="fa fa-google"></span> Google
+										<% end %>
+										<%= link_to user_github_omniauth_authorize_path, :class => "btn btn-block btn-social btn-github" do %>
+											<span class="fa fa-github"></span> Github
+										<% end %>
+									</div>
 								</div>
-								<div class="form-group">
-									<input autocomplete="off" class="form-control" placeholder="Password" type="password" name="user[password]" id="user_password">
-								</div>
-								<div class="field">
-									<label for="user_remember_me">Remember me</label>
-									<input name="user[remember_me]" type="hidden" value="0"><input type="checkbox" value="1" name="user[remember_me]" id="user_remember_me">
-								</div>
-								<%= f.submit "Sign in", class: 'btn btn-primary btn-lg center-block' %>
-							<% end %>
+							</div>
 						</div>
 					</div>
 					<div class="tab-pane fade" id="signup">
@@ -61,7 +78,7 @@
 											</div>
 										</div>
 									</div>
-									<%= f.submit "Sign up", class: 'btn btn-primary btn-lg center-block' %>
+									<%= f.submit "Sign up", class: 'btn btn-primary btn-block center-block' %>
 								<% end %>
 							</div>
 						</div>
