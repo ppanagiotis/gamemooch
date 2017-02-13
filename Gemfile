@@ -62,3 +62,6 @@ gem 'masonry-rails'
 gem 'devise'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
+gem 'omniauth-facebook'
+gem 'omniauth-github'
+gem "omniauth-google-oauth2"
