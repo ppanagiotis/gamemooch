@@ -9,4 +9,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
 
+  def json(game)
+    game = JSON.parse game.gsub('=>', ':')
+    game = game[0]
+  end
+
 end
