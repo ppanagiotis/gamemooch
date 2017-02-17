@@ -2,7 +2,7 @@ class GamesController < ApplicationController
 
   before_action :authenticate_user!
   def index
-    @games = Game.paginate(page: params[:page], per_page: 20)
+    @games = Game.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 20)
   end
 
   def new
