@@ -31,14 +31,63 @@ class GamesController < ApplicationController
       flash[:error] = "Please select a game"
       redirect_to request.env["HTTP_REFERER"]
     end
-    end
-      if @game.save
-        flash[:success] = "Saved successfully"
-        redirect_to games_path
-      else
-        flash[:error] = "Games not saved"
-        redirect_to request.env["HTTP_REFERER"]
+  end
+
+  def mooch
+    response = params[:selectImage]
+    if response
+      response.each do |mooch_game|
+        game = json(mooch_game)
+        id = game['id']
+        @game = Game.find(id)
+        if current_user.games.where(:id => id).present?
+          flash[:error] = "#{game['name']} is yours"
+        else
+          @game.mooch_user = current_user
+          @game.save
+        end
       end
+      redirect_to games_path
+    else
+      flash[:error] = "Please select a game"
+      redirect_to request.env["HTTP_REFERER"]
+    end
+  end
+
+  def unmooch
+    response = params[:selectImage]
+    if response
+      response.each do |mooch_game|
+        game = json(mooch_game)
+        id = game['id']
+        @game = Game.find(id)
+        @game.mooch_user = nil
+        @game.mooched = false
+        @game.save
+      end
+    redirect_to games_path
+    else
+      flash[:error] = "Please select a game"
+      redirect_to request.env["HTTP_REFERER"]
+    end
+  end
+
+  def cancelmooch
+    response = params[:pendingImage]
+    if response
+      response.each do |mooch_game|
+        game = json(mooch_game)
+        id = game['id']
+        @game = Game.find(id)
+        @game.mooch_user = nil
+        @game.mooched = false
+        @game.save
+      end
+      redirect_to games_path
+    else
+      flash[:error] = "Please select a game"
+      redirect_to request.env["HTTP_REFERER"]
+    end
   end
 
 private
