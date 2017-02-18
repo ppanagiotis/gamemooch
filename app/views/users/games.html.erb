@@ -1,3 +1,12 @@
+<div class="page-header">
+	<h1>My Available Games</h1>
+</div>
+<%= form_tag(users_delete_games_path, :method => "get") do %>
+	<%= select_tag "selectImage", options_for_select(@games.map  { |game| [{ data: { 'img-src': game.url } }, game.title , [ 'id' => game.id, 'name' =>  game.title, 'cover' => game.url ] ] }), multiple: true, class: 'image-picker show-labels show-html'%>
+	<div align="center">
+		<%= submit_tag "Delete Games", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-lg btn-block" %>
+	</div>
+<% end %>
 <%= form_tag(new_game_path, :method => "get") do %>
 <%= select_tag "selectImage", options_for_select(@games.map  { |game| [{ data: { 'img-src': game.url } }, game.title , [ 'id' => game.id, 'name' =>  game.title, 'cover' => game.url ] ] }), multiple: true, class: 'image-picker show-labels show-html'%>
 <% end %>
