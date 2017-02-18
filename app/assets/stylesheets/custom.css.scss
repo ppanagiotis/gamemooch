@@ -14,14 +14,27 @@ $navbar-default-bg: rgba(0, 0, 0, 0.8);
 	font-weight: bold;
 }
 
+.content {
+	margin-top: 70px;
+}
+
 .navbar-default .navbar-nav > li > a {
-	font-size: 1.2em;
-	color: #fff;
+	background: rgba(0, 0, 0, 0.6);
+	color: white;
+	display: block;
+	text-decoration: none;
+	-webkit-transition: background .5s;
+	-moz-transition: background .5s;
+	-o-transition: background .5s;
+	-ms-transition: background .5s;
+	transition: background .5s;
+
 }
 
 .navbar-default .navbar-nav > li > a:hover {
-	font-size: 1.3em;
-	color: #fff;
+	color: white;
+	background: rgba(255,255,255,0.2);
+	text-decoration: none;
 }
 
 .center {
@@ -30,8 +43,15 @@ $navbar-default-bg: rgba(0, 0, 0, 0.8);
 
 body {
 	background-image: asset-url('ps4background.jpg');
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-attachment: fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
-	padding-bottom: 70px;
+	font-size: 18px;
+	margin-bottom: 70px;
 }
 
 .jumbotron {
@@ -62,7 +82,7 @@ footer a:hover {
 .thumbnail {
 	background: rgba(0, 0, 0, 0.7);
 	border-radius: 10px;
-	line-height: 1;
+	margin-left: 20px;
 }
 
 ul.thumbnails.image_picker_selector li .thumbnail.selected {
@@ -79,60 +99,74 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
 
 /* Modal */
 #myModal .modal-dialog  {
-  width:500px;
+	width:500px;
 }
 #myModal .modal-content  {
 }
 
 #myModal .modal-body {
-  padding: 10px;
+	padding: 10px;
 }
 #myModal .modal-header {
-  padding: 10px;
-  border-bottom: 1px solid #e5e5e5;
-  }
+	padding: 10px;
+	border-bottom: 1px solid #e5e5e5;
+}
 
 #myModal .modal-footer {
-  padding: 0px;
-  border-top: 1px solid #e5e5e5;
+	padding: 0px;
+	border-top: 1px solid #e5e5e5;
 }
 
 /* User sign in and sign forms. */
 .border-form-div {
-  max-width: 600px;
-  padding: 19px 50px 29px;
-  margin: 0 auto 20px;
-  background-color: gray;
-  background: rgba(0, 0, 0, 0.9);
-  border: 1px solid #e5e5e5;
-  border-radius: 5px;
-  box-shadow: 0 1px 2px rgba(0,0,0,.05);
+	max-width: 600px;
+	padding: 19px 50px 29px;
+	margin: 0 auto 20px;
+	background-color: gray;
+	background: rgba(0, 0, 0, 0.9);
+	border: 1px solid #e5e5e5;
+	border-radius: 5px;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.5);
 }
 .border-form-div input[type="text"],
 .border-form-div input[type="email"],
 .border-form-div input[type="password"] {
-  font-size: 16px;
-  height: auto;
-  margin-bottom: 15px;
-  padding: 7px 9px;
+	font-size: 16px;
+	height: auto;
+	margin-bottom: 15px;
+	padding: 7px 9px;
 }
 
 .border-form-div h1 {
-  color: #fff;
-  text-align: center;
-  margin-bottom: 30px;
-  letter-spacing: -1px;
-  font-weight: bold;
+	color: #fff;
+	text-align: center;
+	margin-bottom: 30px;
+	letter-spacing: -1px;
+	font-weight: bold;
 }
 
 .border-form-div a {
-  color: #fff;
-  letter-spacing: -1px;
-  font-weight: bold;
+	color: #fff;
+	letter-spacing: -1px;
+	font-weight: bold;
 }
 
 .border-form-div .field {
-  color: #fff;
-  text-align: right;
-  margin-bottom: 20px;
+	color: #fff;
+	text-align: right;
+	margin-bottom: 20px;
+}
+
+.page-header {
+	background-color: gray;
+	background: rgba(0, 0, 0, 0.6);
+	padding-top: 1px;
+	padding-bottom: 1px;
+	border-bottom: 0px;
+	border-radius: 6px
+}
+.page-header h1 {
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
 }
