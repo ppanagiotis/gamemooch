@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Gamemooch</title>
-    <%= csrf_meta_tags %>
+	<head>
+		<title>Gamemooch</title>
+		<%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	</head>
 
-  <body>
-    <%= render 'layouts/navigation' %>
-    <%= render 'layouts/modals' %>
-    <div class="container">
-	    <%= render 'layouts/messages' %>
-	    <%= devise_error_messages! %>
-	    <%= yield %>
-    </div>
-    <%= render 'layouts/footer' %>
-  </body>
+	<body>
+		<%= render 'layouts/navigation' %>
+		<%= render 'layouts/modals' %>
+		<div id="wrapper" class="active">
+			<%= render 'layouts/sidebar' %>
+			<!-- Page content -->
+			<div class="content">
+				<div class="container">
+					<%= render 'layouts/messages' %>
+					<%= devise_error_messages! %>
+					<%= yield %>
+				</div>
+			</div>
+		</div>
+		<%= render 'layouts/footer' %>
+	</body>
 </html>

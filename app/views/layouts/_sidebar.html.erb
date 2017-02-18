@@ -1,0 +1,23 @@
+<div id="sidebar-wrapper">
+	<ul id="sidebar_menu" class="sidebar-nav">
+		<li class="sidebar-brand"><a id="menu-toggle" href="#">Menu<span id="main_icon" class="sub_icon glyphicon glyphicon-transfer" ></span></a></li>
+	</ul>
+	<ul class="sidebar-nav" id="sidebar">
+		<li><%= link_to games_path do %>
+		<span class="sub_icon glyphicon glyphicon-search"></span>Available Games
+		<% end %>
+		</li>
+		<li><%= link_to users_games_path do %>
+		<span class="sub_icon glyphicon glyphicon-cd"></span>My games
+		<% end %>
+		</li>
+		<li><%= link_to users_mooched_games_path do %>
+			<span class="sub_icon glyphicon glyphicon-link"></span>Mooched
+		<% end %>
+		</li>
+		<li><%= link_to igdb_search_path do %>
+		<span class="sub_icon glyphicon glyphicon-plus"></span>Add new games
+		<% end %>
+		</li>
+	</ul>
+</div>
