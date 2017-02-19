@@ -3,7 +3,11 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def games
     @user = current_user
-    @games = @user.games.paginate(page: params[:page], per_page: 20)
+    @games = @user.games.where(:mooch_user_id => nil).paginate(page: params[:page], per_page: 15)
+    @mooched_games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => true).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+    @requested_games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => false).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+
+  end
   def requested_games
     response = params[:pendingImage]
     if response
