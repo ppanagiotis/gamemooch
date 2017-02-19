@@ -10,3 +10,6 @@
                 <%= submit_tag "Decline", data: { confirm: "Are you sure?" },  class: "btn btn-danger btn-lg btn-block" %>
         </div>
 <% end %>
+<div align="center">
+	        <%= will_paginate @requested_games %>
+</div>

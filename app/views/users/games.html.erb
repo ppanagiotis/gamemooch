@@ -7,3 +7,6 @@
 		<%= submit_tag "Delete Games", data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-lg btn-block" %>
 	</div>
 <% end %>
+<div align="center">
+	        <%= will_paginate @games %>
+</div>

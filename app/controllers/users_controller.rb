@@ -8,12 +8,12 @@ class UsersController < ApplicationController
 
   def mooched_games
     @user = current_user
-    @games = @user.mooched_games.where(:mooched => true).paginate(page: params[:page], per_page: 20)
+    @games = @user.mooched_games.where(:mooched => true).paginate(page: params[:page], per_page: 15)
   end
 
   def pending_games
     @user = current_user
-    @pending_games = @user.mooched_games.where(:mooched => false).paginate(page: params[:page], per_page: 20)
+    @pending_games = @user.mooched_games.where(:mooched => false).paginate(page: params[:page], per_page: 15)
   end
 
   def moochedby_games
