@@ -44,6 +44,7 @@ class GamesController < ApplicationController
           flash[:error] = "#{game['name']} is yours"
         else
           @game.mooch_user = current_user
+          UserMailer.send_request(@game.user, @game.title).deliver
           @game.save
         end
       end

@@ -33,6 +33,7 @@ class UsersController < ApplicationController
             @game.mooch_user = nil
           else
             @game.mooched = true
+            UserMailer.send_approval(@game.mooch_user, @game.title).deliver
           end
           @game.save
         end
