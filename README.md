@@ -1,24 +1,47 @@
-# README
+# GameMooch
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+GameMooch is a Rails project to exchange games between gamers.
 
-Things you may want to cover:
+---
 
-* Ruby version
+To run the application localy you have to install [rails], [bundler] and setup
+one mysql database.
 
-* System dependencies
+### Configure database
 
-* Configuration
+* edit config/database.yml with the correct database, username and password
 
-* Database creation
+### Configure secrets
 
-* Database initialization
+* edit config/secrets.yml
 
-* How to run the test suite
+### Install dependencies
 
-* Services (job queues, cache servers, search engines, etc.)
+```Bash
+$ bundle install
+```
+### Run migrations
 
-* Deployment instructions
+```Bash
+$ rails db:migrate
+```
 
-* ...
+### Start the app
+```Bash
+$ rails server
+```
+
+### The application will run on:
+```Bash
+http://localhost:3000
+```
+
+### Docker
+> Soon
+
+### Demo
+
+* Demo at https://gamemooch.herokuapp.com/
+
+[bundler]:<http://bundler.io/>
+[rails]:<http://rubyonrails.org/>
