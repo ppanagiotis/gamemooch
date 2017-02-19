@@ -146,3 +146,12 @@
 		transition: all .4s ease 0s;
 	}
 }
+
+.side-dropdown {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  background-color: gray;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100%;
+}

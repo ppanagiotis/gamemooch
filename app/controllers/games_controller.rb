@@ -26,7 +26,7 @@ class GamesController < ApplicationController
           end
         end
       end
-      redirect_to games_path
+      redirect_to request.env["HTTP_REFERER"]
     else
       flash[:error] = "Please select a game"
       redirect_to request.env["HTTP_REFERER"]
@@ -47,7 +47,7 @@ class GamesController < ApplicationController
           @game.save
         end
       end
-      redirect_to games_path
+      redirect_to request.env["HTTP_REFERER"]
     else
       flash[:error] = "Please select a game"
       redirect_to request.env["HTTP_REFERER"]
@@ -55,7 +55,7 @@ class GamesController < ApplicationController
   end
 
   def unmooch
-    response = params[:moochedImage]
+    response = params[:selectImage]
     if response
       response.each do |mooch_game|
         game = json(mooch_game)
@@ -73,7 +73,7 @@ class GamesController < ApplicationController
   end
 
   def cancelmooch
-    response = params[:pendingImage]
+    response = params[:selectImage]
     if response
       response.each do |mooch_game|
         game = json(mooch_game)
@@ -83,7 +83,7 @@ class GamesController < ApplicationController
         @game.mooched = false
         @game.save
       end
-      redirect_to games_path
+      redirect_to request.env["HTTP_REFERER"]
     else
       flash[:error] = "Please select a game"
       redirect_to request.env["HTTP_REFERER"]

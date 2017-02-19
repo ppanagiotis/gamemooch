@@ -4,16 +4,6 @@ $(document).on('turbolinks:load', function () {
         show_label  : true
     });
 
-    $("#pendingImage").imagepicker({
-        hide_select: true,
-        show_label  : true
-    });
-
-    $("#moochedImage").imagepicker({
-        hide_select: true,
-        show_label  : true
-    });
-
     var $container = $('.image_picker_selector');
     // initialize
     $container.imagesLoaded(function () {
