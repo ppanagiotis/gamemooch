@@ -37,7 +37,10 @@ http://localhost:3000
 ```
 
 ### Docker
-> Soon
+* Download [docker] and [docker-compose] and simply run
+```Bash
+$ docker-compose up
+```
 
 ### Demo
 
@@ -45,3 +48,5 @@ http://localhost:3000
 
 [bundler]:<http://bundler.io/>
 [rails]:<http://rubyonrails.org/>
+[docker]:<https://www.docker.com/>
+[docker-compose]:<https://docs.docker.com/compose/>
