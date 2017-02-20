@@ -14,8 +14,8 @@ development:
   username: gamemooch
   password: gamemooch
   database: gamemooch
-  host: 127.0.0.1
-  port: 3306
+  host: <%= ENV['MYSQL_PORT_3306_TCP_ADDR'] %>
+  port: <%= ENV['MYSQL_PORT_3306_TCP_PORT'] %>
   encoding: utf8
 
 # Warning: The database defined as "test" will be erased and
