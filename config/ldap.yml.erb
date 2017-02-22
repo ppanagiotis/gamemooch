@@ -1,0 +1,20 @@
+development:
+  host: <%= ENV["LDAP_HOST"] %>
+  port: <%= ENV["LDAP_PORT"] %>
+  attribute: mail
+  base: <%= ENV["LDAP_BASE"] %>
+  ssl: false
+
+test:
+  host: localhost
+  port: 3389
+  attribute: cn
+  base: ou=people,dc=test,dc=com
+  ssl: false
+
+production:
+  host: <%= ENV["LDAP_HOST"] %>
+  port: <%= ENV["LDAP_PORT"] %>
+  attribute: mail
+  base: <%= ENV["LDAP_BASE"] %>
+  ssl: true
