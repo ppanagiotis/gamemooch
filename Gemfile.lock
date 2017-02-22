@@ -110,6 +110,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     mysql2 (0.4.5)
+    net-ldap (0.11)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
       mini_portile2 (~> 2.1.0)
@@ -229,6 +230,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   masonry-rails
   mysql2
+  net-ldap
   omniauth-facebook
   omniauth-github
   omniauth-google-oauth2
