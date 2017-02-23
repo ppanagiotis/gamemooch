@@ -68,3 +68,7 @@ gem "omniauth-google-oauth2"
 gem 'bootstrap-social-rails'
 gem 'font-awesome-rails'
 gem 'net-ldap'
+gem 'unicorn'
+gem 'capistrano'
+gem 'capistrano-rails'
+gem 'capistrano-bundler'
