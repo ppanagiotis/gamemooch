@@ -76,16 +76,28 @@ body {
 	letter-spacing: -1px;
 }
 
-footer {
-	margin-top: -45px;
-	padding-top: 5px;
+.footer {
+	width:45%;
+	height:50px;
+	position:fixed;
+	bottom:0px;
+	margin-bottom: 0;
+	border-width: 1px 0 0;
 	border-top: 1px solid #fff;
 	color: #fff;
+	margin-top: -45px;
+	padding-top: 5px;
+	text-align:center;
 }
 
 footer a:hover {
-	text-decoration: none
+	text-decoration: none;
 }
+
+footer a {
+	font-weight: bold;
+}
+
 
 .thumbnail {
 	background: rgba(0, 0, 0, 0.7);
