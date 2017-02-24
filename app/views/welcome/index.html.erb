@@ -1,6 +1,11 @@
 <div class="jumbotron center">
-  <h1>Welcome to GameMooch!</h1>
-  <h2>The ultimate application for game exchange</h2>
-  <h2>Sign up to mooch games!</h2>
-  <%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-primary btn-lg"%>
+	<h1>Welcome to GameMooch!</h1>
+	<h2>The ultimate application for game exchange</h2>
+	<% if current_user %>
+		<h2>Mooch games!</h2>
+		<%= link_to "Show Games", games_path, :class => "btn btn-primary btn-lg"%>
+	<% else %>
+		<h2>Sign up to mooch games!</h2>
+		<%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-primary btn-lg"%>
+	<% end %>
 </div>
