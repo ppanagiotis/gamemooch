@@ -9,3 +9,27 @@
 		<%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-primary btn-lg"%>
 	<% end %>
 </div>
+<div class="container">
+    <div class="col-md-12">
+         <h2>Recently added games</h2>
+	 <div class="well">
+		 <div id="myCarousel" class="carousel slide">
+			 <div class="carousel-inner">
+				 <% @games.each_slice(4).with_index do |(*games), i| %>
+					 <div class="item <%= 'active' if i == 0 %>">
+						 <div class="row">
+							 <% games.each do |game| %>
+								 <div class="col-sm-3"><%= image_tag(game.url, :size => '220x250') %></div>
+							 <% end %>
+						 </div>
+						 <!--/row-->
+					 </div>
+				 <% end %>
+			 </div>
+			 <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
+
+			 <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+            </div>
+        </div>
+    </div>
+</div>
