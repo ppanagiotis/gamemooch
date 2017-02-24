@@ -11,8 +11,12 @@
 	<body>
 		<%= render 'layouts/navigation' %>
 		<%= render 'layouts/modals' %>
+		<% if current_user %>
 		<div id="wrapper" class="active">
 			<%= render 'layouts/sidebar' %>
+		<% else %>
+		<div id="wrapper">
+		<% end %>
 			<!-- Page content -->
 			<div class="content">
 				<div class="container">
