@@ -5,6 +5,7 @@ $navbar-default-bg: rgba(0, 0, 0, 0.8);
 @import "image-picker";
 @import "bootstrap-social";
 @import 'font-awesome';
+@import "owl.carousel2";
 
 #logo {
 	float: left;
@@ -178,20 +179,18 @@ ul.thumbnails.image_picker_selector li .thumbnail.selected {
 	font-weight: bold;
 }
 
-.carousel-control {
-  padding-top:10%;
-  width:5%;
-}
-
 .well {
 	background-color: gray;
 	background: rgba(0, 0, 0, 0.5);
 	border: 0px;
 	border-radius: 6px;
+	margin-top: 150px;
 
 }
 
 h2 {
+	margin-top: 10px;
+	margin-bottom: 40px;
 	color: #fff;
 	text-align: center;
 	font-weight: bold;

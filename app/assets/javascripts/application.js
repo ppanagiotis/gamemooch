@@ -17,4 +17,5 @@
 //= require image-picker
 //= require bootstrap-sprockets
 //= require turbolinks
+//= require owl.carousel2
 //= require_tree .

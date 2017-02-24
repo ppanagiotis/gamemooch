@@ -156,6 +156,7 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
+    owlcarousel2-rails (2.1.0)
     puma (3.7.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -263,6 +264,7 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-github
   omniauth-google-oauth2
+  owlcarousel2-rails
   puma (~> 3.0)
   rails (~> 5.0.1)
   sass-rails (~> 5.0)
