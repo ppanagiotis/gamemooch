@@ -3,7 +3,6 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'igdb/search'
   get 'igdb/games'
-  get 'users/games'
   get 'users/mooched_games'
   get 'users/moochedby_games'
   get 'users/requested_games'
@@ -15,7 +14,10 @@ Rails.application.routes.draw do
   get 'games/cancelmooch'
 
   root 'welcome#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :games
+  resources :users do |user|
+      resources :games
+  end
+
 end
