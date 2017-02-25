@@ -75,6 +75,14 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  # Config mailer settings
+  config.action_mailer.default_url_options = { host: ENV["URL"] }
+	config.action_mailer.smtp_settings = {
+		address:  ENV["MAILER_HOST"],
+		port:     ENV["MAILER_PORT"],
+	}
+
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
