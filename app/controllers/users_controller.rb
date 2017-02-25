@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   before_action :authenticate_user!
   def games
-    @user = current_user
+    @user = User.find(params[:id])
     @games = @user.games.where(:mooch_user_id => nil).paginate(page: params[:page], per_page: 15)
   end
 
@@ -62,6 +62,10 @@ class UsersController < ApplicationController
       flash[:error] = "Please select a game"
       redirect_to request.env["HTTP_REFERER"]
     end
+  end
+
+  def index
+    @users = User.all
   end
 
 end

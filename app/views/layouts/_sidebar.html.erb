@@ -11,7 +11,7 @@
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">My Games<span class="sub_icon glyphicon glyphicon-link"></span></a>
 			<ul class="dropdown-menu side-dropdown" role="menu">
-				<li><%= link_to "Mine", users_games_path %></li>
+				<li><%= link_to "Mine", user_games_path(current_user) %></li>
 				<li><%= link_to "Mooched", users_moochedby_games_path %></li>
 				<li><%= link_to "Requested", users_requested_games_path %></li>
 			</ul>
@@ -25,6 +25,9 @@
 		</li>
 		<li><%= link_to igdb_search_path do %>
 		<span class="sub_icon glyphicon glyphicon-plus"></span>Add new games
+		<% end %>
+		<li><%= link_to users_path do %>
+		<span class="sub_icon glyphicon glyphicon-user"></span>Show users
 		<% end %>
 		</li>
 	</ul>
