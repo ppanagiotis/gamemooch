@@ -148,10 +148,23 @@
 }
 
 .side-dropdown {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  background-color: gray;
-  background: rgba(0, 0, 0, 0.6);
-  width: 100%;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	background-color: gray;
+	background: rgba(0, 0, 0, 0.6);
+	width: 100%;
+}
+
+#wrapper.active .avatar {
+	height: 200px;
+	border-radius: 50%;
+	margin-left: 45px;
+	margin-top: 15px;
+	margin-bottom: 15px;
+}
+
+.avatar {
+	height: 0px;
+	transition: all .4s ease 0s;
 }
