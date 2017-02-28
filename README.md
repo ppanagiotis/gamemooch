@@ -11,9 +11,9 @@ one mysql database.
 
 * edit config/database.yml with the correct database, username and password
 
-### Configure secrets
+### Configure local env file
 
-* edit config/secrets.yml
+* edit config/local_env.yml
 
 ### Install dependencies
 
