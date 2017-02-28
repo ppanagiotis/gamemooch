@@ -74,3 +74,5 @@ gem 'capistrano-rails'
 gem 'capistrano-bundler'
 gem 'owlcarousel2-rails'
 gem 'gravtastic'
+gem "searchkick"
+gem 'twitter-typeahead-rails'

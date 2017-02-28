@@ -2,16 +2,20 @@ class GamesController < ApplicationController
 
   before_action :authenticate_user!
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      if @user == current_user
-        @games = @user.games.where(:mooch_user_id => nil).paginate(page: params[:page], per_page: 15)
-        render "users/games"
-      else
-      @games = @user.games.where(:mooch_user_id => nil).paginate(page: params[:page], per_page: 15)
-      end
+    if params[:query].present?
+      @games = Game.search params[:query], where: { mooch_user_id: nil }
     else
-      @games = Game.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+      if params[:user_id]
+        @user = User.find(params[:user_id])
+        if @user == current_user
+          @games = @user.games.paginate(page: params[:page], per_page: 15)
+          render "users/games"
+        else
+          @games = @user.games.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+        end
+      else
+        @games = Game.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+      end
     end
   end
 
@@ -99,6 +103,16 @@ class GamesController < ApplicationController
       flash[:error] = "Please select a game"
       redirect_to request.env["HTTP_REFERER"]
     end
+  end
+
+  def autocomplete
+    render json: Game.search(params[:query], {
+      fields: ["title"],
+      match: :word_start,
+      load: false,
+      limit: 10,
+      misspellings: false,
+    }).map(&:title)
   end
 
 private

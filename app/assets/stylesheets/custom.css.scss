@@ -234,3 +234,15 @@ h2 {
 	text-align: center;
 	font-weight: bold;
 }
+
+.twitter-typeahead {
+  display: table-cell!important;
+}
+
+.tt-menu {
+	padding: 3px 20px;
+	background-color: white;
+}
+.tt-suggestion.tt-cursor {
+	font-weight: bold;
+}

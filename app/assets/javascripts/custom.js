@@ -31,3 +31,22 @@ $(document).on('turbolinks:load', function () {
         owl.trigger('stop.owl.autoplay')
     })
 });
+
+$(document).on('turbolinks:load', function () {
+  var games = new Bloodhound({
+  datumTokenizer: Bloodhound.tokenizers.whitespace,
+    queryTokenizer: Bloodhound.tokenizers.whitespace,
+    remote: {
+      url: '/games/autocomplete?query=%QUERY',
+      wildcard: '%QUERY'
+    }
+  });
+  $('#query').typeahead({
+    hint: true,
+    minLength: 1,
+    limit: 10,
+  },
+  {
+    source: games
+  });
+});

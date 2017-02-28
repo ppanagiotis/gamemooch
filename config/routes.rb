@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'games/mooch'
   get 'games/unmooch'
   get 'games/cancelmooch'
+  get 'games/autocomplete'
 
   root 'welcome#index'
 
