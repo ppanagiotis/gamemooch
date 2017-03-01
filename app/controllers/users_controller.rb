@@ -50,13 +50,16 @@ class UsersController < ApplicationController
 
   def delete_games
     response = params[:selectImage]
+    @games = []
     if response
       response.each do |game|
         game = json(game)
         id = game['id']
         @game = Game.find(id)
         @game.destroy
+        @games.append(@game.title)
       end
+      flash[:error] = "#{@games.to_sentence} Deleted"
       redirect_to request.env["HTTP_REFERER"]
     else
       flash[:error] = "Please select a game"
