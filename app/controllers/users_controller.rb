@@ -9,16 +9,28 @@ class UsersController < ApplicationController
   def mooched_games
     @user = current_user
     @games = @user.mooched_games.where(:mooched => true).paginate(page: params[:page], per_page: 15)
+    @submit_tag = "Unmooch"
+    @action = games_unmooch_path
+    @title = "Mooched"
+    render "games_grid"
   end
 
   def pending_games
     @user = current_user
-    @pending_games = @user.mooched_games.where(:mooched => false).paginate(page: params[:page], per_page: 15)
+    @games = @user.mooched_games.where(:mooched => false).paginate(page: params[:page], per_page: 15)
+    @submit_tag = "Cancel"
+    @action = games_cancelmooch_path
+    @title = "Pending for mooching"
+    render "games_grid"
   end
 
   def moochedby_games
     @user = current_user
-    @mooched_games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => true).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+    @games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => true).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+    @submit_tag = "Unmooch Games"
+    @action = games_unmooch_path
+    @title = "Mooched by others"
+    render "games_grid"
   end
 
   def requested_games
@@ -44,7 +56,7 @@ class UsersController < ApplicationController
       end
     else
       @user = current_user
-      @requested_games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => false).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+      @games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => false).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
     end
   end
 

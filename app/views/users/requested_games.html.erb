@@ -2,7 +2,7 @@
         <h1>Requested by others</h1>
 </div>
 <%= form_tag(users_requested_games_path, :method => "post") do %>
-        <%= select_tag "selectImage", options_for_select(@requested_games.map  { |game| [{ data: { 'img-src': game.url } }, if game.mooch_user.username? then "#{game.title} <hr> #{game.mooch_user.username}" else  "#{game.title} <hr> #{game.mooch_user.email}" end , [ 'id' => game.id, 'name' =>  game.title, 'cover' => game.url ] ] }), multiple: true, class: 'image-picker show-labels show-html'%>
+        <%= select_tag "selectImage", options_for_select(@games.map  { |game| [{ data: { 'img-src': game.url } }, if game.mooch_user.username? then "#{game.title} <hr> #{game.mooch_user.username}" else  "#{game.title} <hr> #{game.mooch_user.email}" end , [ 'id' => game.id, 'name' =>  game.title, 'cover' => game.url ] ] }), multiple: true, class: 'image-picker show-labels show-html'%>
         <div class="col-md-6">
                 <%= submit_tag "Approve", class: "btn btn-primary btn-lg btn-block" %>
         </div>
@@ -11,5 +11,5 @@
         </div>
 <% end %>
 <div align="center">
-	        <%= will_paginate @requested_games %>
+	        <%= will_paginate @games %>
 </div>

@@ -1,0 +1,14 @@
+<div class="page-header">
+        <h1><%= @title %></h1>
+</div
+<div align="center">
+        <%= form_tag(@action, :method => "get") do %>
+                <%= select_tag "selectImage", options_for_select(@games.map  { |game| [{ data: { 'img-src': game.url } }, if game.user.username? then "<b>#{game.title}</b> <hr> Owner: <b> #{game.user.username} </b>" else  "<b>#{game.title}</b> <hr> Owner: <b> #{game.user.email} </b>" end , [ 'id' => game.id, 'name' =>  game.title, 'cover' => game.url, 'owner' => game.user.email ] ] }), multiple: true, class: 'image-picker show-labels show-html'%>
+                <div align="center">
+                        <%= submit_tag @submit_tag, class: "btn btn-primary btn-lg btn-block" %>
+                </div>
+        <% end %>
+</div>
+<div align="center">
+        <%= will_paginate @games %>
+</div>

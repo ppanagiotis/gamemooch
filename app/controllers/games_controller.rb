@@ -11,10 +11,20 @@ class GamesController < ApplicationController
           @games = @user.games.paginate(page: params[:page], per_page: 15)
           render "users/games"
         else
+          @submit_tag = "Mooch Games"
+          @action = games_mooch_path
+          if @user.username?
+            @title = "#{@user.username.capitalize} available Games"
+          else
+            @title = "#{@user.emal} available Games"
+          end
           @games = @user.games.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
         end
       else
         @games = Game.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+        @submit_tag = "Mooch Games"
+        @action = games_mooch_path
+        @title = "Available Games"
       end
     end
   end
@@ -62,9 +72,9 @@ class GamesController < ApplicationController
           UserMailer.send_request(@game.user, @game.title).deliver
           @game.save
           @games.append(@game.title)
+          flash[:success] = "#{@games.to_sentence} Mooched"
         end
       end
-      flash[:success] = "#{@games.to_sentence} Mooched"
       redirect_to games_url
     else
       flash[:error] = "Please select a game"
