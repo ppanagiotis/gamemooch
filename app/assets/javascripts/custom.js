@@ -9,9 +9,17 @@ $(document).on('turbolinks:load', function () {
     $container.imagesLoaded(function () {
         $container.masonry({
             columnWidth: 10,
-            itemSelector: '.thumbnail'
+            itemSelector: 'li'
         });
     });
+    $('.thumbnail').hover(
+            function(){
+                $(this).find('p').slideDown(250); //.fadeIn(250)
+            },
+            function(){
+                $(this).find('p').slideUp(250); //.fadeOut(205)
+            }
+    );
 });
 
 $(document).on('turbolinks:load', function () {
@@ -49,4 +57,7 @@ $(document).on('turbolinks:load', function () {
   {
     source: games
   });
+});
+
+$(document).on('turbolinks:load', function () {
 });

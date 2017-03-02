@@ -100,20 +100,35 @@ footer a {
 
 
 .thumbnail {
+	position:relative;
+	overflow:hidden;
 	background: rgba(0, 0, 0, 0.7);
 	border-radius: 10px;
 	margin-left: 20px;
 }
 
-ul.thumbnails.image_picker_selector li .thumbnail.selected {
-	opacity: 0.4;
+.thumbnail p {
+	position:absolute;
+	top:0;
+	right:0;
+	background: rgba(0, 0, 0, 0.6);
+	width:100%;
+	height:100%;
+	padding:2%;
+	display: none;
+	text-align: center;
+	color:white;
+	font-size: 16px;
+	padding-top: 10px;
 }
 
-.thumbnail p {
-	text-align: center;
-	margin: 1em;
-	width: 150px;
-	color: white;
+.thumbnail hr {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+ul.thumbnails.image_picker_selector li .thumbnail.selected {
+	opacity: 0.4;
 }
 
 
@@ -236,7 +251,7 @@ h2 {
 }
 
 .twitter-typeahead {
-  display: table-cell!important;
+	display: table-cell!important;
 }
 
 .tt-menu {

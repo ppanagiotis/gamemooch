@@ -1,26 +1,26 @@
 <%= form_tag(games_path, :method => "get", id: "search-form") do %>
-        <div class="row">
-                <div class="col-lg-12">
-                        <div class="input-group">
+	<div class="row">
+		<div class="col-lg-12">
+			<div class="input-group">
 				<%= text_field_tag :query, params[:search], placeholder: "Search Games", class: "form-control" %>
 				<span class="input-group-btn">
 					<%= submit_tag "Search" , class: "btn btn-default"%>
 				</span>
-                        </div><!-- /input-group -->
-                </div><!-- /.col-lg-12 -->
-        </div><!-- /.row -->
+			</div><!-- /input-group -->
+		</div><!-- /.col-lg-12 -->
+	</div><!-- /.row -->
 <% end %>
 
 <div class="page-header">
 	<h1>Available Games</h1>
 </div>
 <div align="center">
-<%= form_tag(games_mooch_path, :method => "get") do %>
-	<%= select_tag "selectImage", options_for_select(@games.map  { |game| [{ data: { 'img-src': game.url } }, if game.user.username? then "#{game.title} <hr> #{game.user.username}" else  "#{game.title} <hr> #{game.user.email}" end , [ 'id' => game.id, 'name' =>  game.title, 'cover' => game.url, 'owner' => game.user.email ] ] }), multiple: true, class: 'image-picker show-labels show-html'%>
-	<div align="center">
-		<%= submit_tag "Mooch Games", class: "btn btn-primary btn-lg btn-block" %>
-	</div>
-<% end %>
+	<%= form_tag(games_mooch_path, :method => "get") do %>
+		<%= select_tag "selectImage", options_for_select(@games.map  { |game| [{ data: { 'img-src': game.url } }, if game.user.username? then "<b>#{game.title}</b> <hr> Owner: <b> #{game.user.username} </b>" else  "<b>#{game.title}</b> <hr> Owner: <b> #{game.user.email} </b>" end , [ 'id' => game.id, 'name' =>  game.title, 'cover' => game.url, 'owner' => game.user.email ] ] }), multiple: true, class: 'image-picker show-labels show-html'%>
+		<div align="center">
+			<%= submit_tag "Mooch Games", class: "btn btn-primary btn-lg btn-block" %>
+		</div>
+	<% end %>
 </div>
 <div align="center">
 	<%= will_paginate %>
