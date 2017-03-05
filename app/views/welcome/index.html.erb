@@ -14,7 +14,7 @@
 		<h2>Recently added games</h2>
 		<div class="owl-carousel owl-theme">
 			<% @games.each do |game|%>
-				<%= image_tag(game.url)%>
+				<%= image_tag(game.url.gsub("t_cover_med", "t_cover_uniform"))%>
 			<% end %>
 		</div>
 	</div>
