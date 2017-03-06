@@ -93,7 +93,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    @top_users = User.order(games_count: :desc)
   end
 
 end

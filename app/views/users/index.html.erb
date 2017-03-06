@@ -17,14 +17,14 @@
   </thead>
   <tbody>
     <tr>
-	<% @users.each do |user| %>
+	<% @top_users.each do |user| %>
 		<tr>
 			<td><%= image_tag(user.gravatar_url(:size => 25, :default => "retro"))%></td>
 			<td><%= user.username %></td>
 			<td><%= user.email %></td>
 			<td><%= user.first_name%></td>
 			<td><%= user.last_name %></td>
-			<td><%= user.games.count %></td>
+			<td><%= user.games_count %></td>
 			<td><%= user.mooched_games.count %></td>
 			<td><%= link_to user_games_path(user) do %>
 				<span class="glyphicon glyphicon-eye-open"></span>
