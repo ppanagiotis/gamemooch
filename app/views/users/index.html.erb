@@ -11,6 +11,8 @@
       <th>First Name</th>
       <th>Last Name</th>
       <th>Games</th>
+      <th>Mooched</th>
+      <th>Show</th>
     </tr>
   </thead>
   <tbody>
@@ -22,6 +24,8 @@
 			<td><%= user.email %></td>
 			<td><%= user.first_name%></td>
 			<td><%= user.last_name %></td>
+			<td><%= user.games.count %></td>
+			<td><%= user.mooched_games.count %></td>
 			<td><%= link_to user_games_path(user) do %>
 				<span class="glyphicon glyphicon-eye-open"></span>
 			<% end %>
