@@ -1,35 +1,48 @@
 class UsersController < ApplicationController
 
   before_action :authenticate_user!
-  def games
-    @user = User.find(params[:id])
-    @games = @user.games.where(:mooch_user_id => nil).paginate(page: params[:page], per_page: 15)
-  end
-
   def mooched_games
     @user = current_user
     @games = @user.mooched_games.where(:mooched => true).paginate(page: params[:page], per_page: 15)
-    @submit_tag = "Unmooch"
-    @action = games_unmooch_path
     @title = "Mooched"
+    if !@games.empty?
+      @submit_tag = "Unmooch"
+      @action = games_unmooch_path
+    else
+      @games = nil
+      @action = users_pending_games_path
+      @submit_tag = "Pending games"
+    end
     render "games_grid"
   end
 
   def pending_games
     @user = current_user
     @games = @user.mooched_games.where(:mooched => false).paginate(page: params[:page], per_page: 15)
+    @title = "Pending for mooching"
+    if !@games.empty?
     @submit_tag = "Cancel"
     @action = games_cancelmooch_path
-    @title = "Pending for mooching"
+    else
+      @games = nil
+      @action = games_path
+      @submit_tag = "Available games"
+    end
     render "games_grid"
   end
 
   def moochedby_games
     @user = current_user
     @games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => true).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
-    @submit_tag = "Unmooch Games"
-    @action = games_unmooch_path
     @title = "Mooched by others"
+    if !@games.empty?
+      @submit_tag = "Unmooch Games"
+      @action = games_unmooch_path
+    else
+      @games = nil
+      @action = users_requested_games_path
+      @submit_tag = "Requested games"
+    end
     render "games_grid"
   end
 

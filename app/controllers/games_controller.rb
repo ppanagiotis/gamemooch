@@ -4,19 +4,31 @@ class GamesController < ApplicationController
   def index
     if params[:query].present?
       @games = Game.search params[:query], where: { mooch_user_id: nil }
+      @submit_tag = "Mooch Games"
+      @action = games_mooch_path
+      @title = "Available Games"
     else
       if params[:user_id]
         @user = User.find(params[:user_id])
         if @user == current_user
+          @title = "My Games"
           @games = @user.games.paginate(page: params[:page], per_page: 15)
-          render "users/games"
+          if !@games.empty?
+            @submit_tag = "Delete"
+            @action = users_delete_games_path
+          else
+            @games = nil
+            @action = igdb_search_path
+            @submit_tag = "Add games"
+          end
+        render "games_grid"
         else
           @submit_tag = "Mooch Games"
           @action = games_mooch_path
           if @user.username?
             @title = "#{@user.username.capitalize} available Games"
           else
-            @title = "#{@user.emal} available Games"
+            @title = "#{@user.email} available Games"
           end
           @games = @user.games.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
         end
