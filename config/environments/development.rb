@@ -55,9 +55,11 @@ Rails.application.configure do
   # URL options for the Devise mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 25 }
 
+
   config.before_configuration do
     env_file = File.join(Rails.root, 'config', 'local_env.yml')
-    YAML.load(File.open(env_file)).each do |key, value|
+    content = ERB.new(File.read(env_file)).result(binding)
+    YAML.load(content).each do |key, value|
       ENV[key.to_s] = value
     end if File.exists?(env_file)
   end

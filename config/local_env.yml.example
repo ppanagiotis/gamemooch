@@ -5,3 +5,4 @@ LDAP_HOST: 'ldap.example.com'
 LDAP_PORT: '389'
 LDAP_BASE: 'ou=people,dc=example,dc=com'
 SECRET_KEY_BASE: 'KEY'
+ELASTICSEARCH_URL: "http://<%= ENV['ES_PORT_9200_TCP_ADDR'] %>:<%= ENV['ES_PORT_9200_TCP_PORT'] %>"
