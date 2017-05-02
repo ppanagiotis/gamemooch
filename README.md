@@ -4,7 +4,7 @@ GameMooch is a Rails project to exchange games between gamers.
 
 ---
 
-To run the application localy you have to install [rails], [bundler] and setup
+To run the application locally you have to install [rails], [bundler] and setup
 one mysql database.
 
 ### Configure database
