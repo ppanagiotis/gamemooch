@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!
   def mooched_games
     @user = current_user
-    @games = @user.mooched_games.where(:mooched => true).paginate(page: params[:page], per_page: 15)
+    @games = @user.mooched_games.where(:mooched => true).paginate(page: params[:page], per_page: 18)
     @title = "Mooched"
     if !@games.empty?
       @submit_tag = "Unmooch"
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   def pending_games
     @user = current_user
-    @games = @user.mooched_games.where(:mooched => false).paginate(page: params[:page], per_page: 15)
+    @games = @user.mooched_games.where(:mooched => false).paginate(page: params[:page], per_page: 18)
     @title = "Pending for mooching"
     if !@games.empty?
     @submit_tag = "Cancel"
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   def moochedby_games
     @user = current_user
-    @games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => true).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+    @games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => true).order("created_at").reverse_order.paginate(page: params[:page], per_page: 18)
     @title = "Mooched by others"
     if !@games.empty?
       @submit_tag = "Unmooch Games"
@@ -69,7 +69,7 @@ class UsersController < ApplicationController
       end
     else
       @user = current_user
-      @games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => false).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+      @games = @user.games.where.not(:mooch_user_id => nil).where(:mooched => false).order("created_at").reverse_order.paginate(page: params[:page], per_page: 18)
     end
   end
 
