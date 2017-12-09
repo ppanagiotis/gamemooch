@@ -12,7 +12,7 @@ module Gamemooch
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.igdb_base_uri = "https://api-2445582011268.apicast.io"
-    config.default_image = "//images.igdb.com/igdb/image/upload/t_cover_med/nocover_qhhlj6.jpg"
+    config.default_image = ActionController::Base.helpers.asset_path('no-image')
     config.platforms = {
       "xbox" => 11,
       "xbox360" => 12,
