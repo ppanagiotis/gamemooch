@@ -55,6 +55,9 @@ class GamesController < ApplicationController
         else
           @game.igdb_id = game['id']
           if @game.save
+            User.where.not(id: @game.user.id).each do |user|
+              UserMailer.new_game(user, @game.title).deliver
+            end
             flash[:success] = "Saved successfully"
           else
             flash[:error] = "Games not saved"

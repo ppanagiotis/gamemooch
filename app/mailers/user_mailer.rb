@@ -12,4 +12,11 @@ class UserMailer < ApplicationMailer
     mail( :to => @user.email,
     :subject => 'You mooch a game!' )
   end
+
+  def new_game(user, title)
+    @user = user
+		@title = title
+    mail( :to => @user.email,
+    :subject => 'New game added' )
+  end
 end
