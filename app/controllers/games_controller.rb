@@ -12,7 +12,7 @@ class GamesController < ApplicationController
         @user = User.find(params[:user_id])
         if @user == current_user
           @title = "My Games"
-          @games = @user.games.paginate(page: params[:page], per_page: 15)
+          @games = @user.games.paginate(page: params[:page], per_page: 18)
           if !@games.empty?
             @submit_tag = "Delete"
             @action = users_delete_games_path
@@ -30,10 +30,10 @@ class GamesController < ApplicationController
           else
             @title = "#{@user.email} available Games"
           end
-          @games = @user.games.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+          @games = @user.games.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 18)
         end
       else
-        @games = Game.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 15)
+        @games = Game.where(:mooch_user_id => nil).order("created_at").reverse_order.paginate(page: params[:page], per_page: 18)
         @submit_tag = "Mooch Games"
         @action = games_mooch_path
         @title = "Available Games"
