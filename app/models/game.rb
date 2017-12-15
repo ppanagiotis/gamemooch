@@ -3,4 +3,5 @@ class Game < ApplicationRecord
   belongs_to :user, counter_cache: :games_count
   belongs_to :mooch_user, class_name: 'User', optional: true
   validates :user_id, presence: true
+  enum console: Rails.configuration.platforms
 end
