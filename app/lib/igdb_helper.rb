@@ -1,7 +1,6 @@
 module IgdbHelper
   class Game
     include HTTParty
-    debug_output $stdout
     base_uri  Rails.configuration.igdb_base_uri
 
     def initialize(search_term, fields= [], endpoint='games', limit=49)
