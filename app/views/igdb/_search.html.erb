@@ -1,0 +1,11 @@
+<%= form_tag(igdb_games_path, :method => "get", id: "search-form" ,class: "form-inline") do %>
+<div class="row">
+  <div class="input-group">
+    <div class="input-group-btn">
+    <%= text_field_tag :search, params[:search], placeholder: "Search Games You own", class: "form-control" %>
+    <%= select_tag :platform, options_for_select(@platforms), class: "form-control" %>
+    <%= submit_tag "search" , class: "form-control"%>
+    </div>
+  </div><!-- /input-group -->
+</div><!-- /.row -->
+<% end %>
