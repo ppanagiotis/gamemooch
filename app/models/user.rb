@@ -2,7 +2,7 @@ class User < ApplicationRecord
   include Gravtastic
   gravtastic
 
-  has_many :games
+  has_many :games, dependent: :destroy
   has_many :mooched_games, class_name: "Game", foreign_key: :mooch_user_id
 
   attr_accessor :login
