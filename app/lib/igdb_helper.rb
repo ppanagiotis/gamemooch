@@ -17,6 +17,7 @@ module IgdbHelper
       @result = JSON.parse(@response.body)
       @result.each do |entry|
         if !entry['platforms'].nil? && entry['platforms'].include?(platform)
+          entry['platform'] = platform
           if !entry['cover'].nil?
             entry['cover']['url'].gsub! 't_thumb', 't_cover_med'
           else

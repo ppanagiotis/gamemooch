@@ -42,14 +42,17 @@ class GamesController < ApplicationController
   end
 
   def new
+    platforms=Game.consoles()
     response = params[:selectImage]
     if response
       response.each do |igdb_game|
         game = json(igdb_game)
+        console_name = platforms.key(game['platform'])
         @game = Game.new(game_params)
         @game.user = current_user
         @game.title= game['name']
         @game.url = game['cover']
+        @game.console = Console.find_by(name: console_name)
         if current_user.games.where(:igdb_id => game['id']).present?
           flash[:error] = "You already have #{game['name']}"
         else
