@@ -32,7 +32,8 @@ def games_grid(games)
     |game| [ {
       data: { 'img-src': game.url }
     },
-    if game.user.username? then "<b>#{game.title}</b> <hr> Owner: <b> #{game.user.username} </b>"
+    if game.console then "<b>#{game.title}</b> <hr> Owner: <b> #{game.user.username} </b> <hr> Plarform: <b>#{game.console.name}"
+    elsif game.user.username? then "<b>#{game.title}</b> <hr> Owner: <b> #{game.user.username} </b>"
     else  "<b>#{game.title}</b> <hr> Owner: <b> #{game.user.email} </b>"
     end ,
     [ 'id' => game.id, 'name' =>  game.title, 'cover' => game.url, 'owner' => game.user.email ] ]
