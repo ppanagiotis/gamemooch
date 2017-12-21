@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+platforms = Rails.configuration.platforms.keys
+
+platforms.each do |name|
+  Console.create( name: name )
+end
