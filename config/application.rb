@@ -14,25 +14,26 @@ module Gamemooch
     config.igdb_base_uri = "https://api-2445582011268.apicast.io"
     config.default_image = ActionController::Base.helpers.asset_path('no-image')
     config.platforms = {
-      "xbox" => 11,
-      "xbox360" => 12,
-      "xboxone" => 49,
-      "pc" => 6,
-      "ps" => 7,
-      "ps2" => 8,
-      "ps3" => 9,
-      "ps4" => 48,
-      "psp" => 38,
-      "psvita" => 46,
-      "nes" => 18,
-      "snes" => 19,
-      "n64" => 4,
-      "gamecube" => 21,
-      "wii" => 5,
-      "wiiu" => 41,
-      "ds" => 20,
-      "3ds" => 37,
-      "dreamcast" => 23
+#      "xbox" => 11,
+      "Xbox 360" => 12,
+      "xbox One" => 49,
+      "PC" => 6,
+#      "ps" => 7,
+#      "ps2" => 8,
+      "PlayStation 3" => 9,
+      "PlayStation 4" => 48,
+      "PSP" => 38,
+      "PS VITA" => 46,
+#      "nes" => 18,
+#      "snes" => 19,
+#      "n64" => 4,
+#      "gamecube" => 21,
+      "Wii" => 5,
+      "WiiU" => 41,
+      "DS" => 20,
+      "3DS" => 37,
+      "Switch" => 130,
+#      "dreamcast" => 23
     }
   end
 end
