@@ -152,6 +152,14 @@ class GamesController < ApplicationController
     }).map(&:title)
   end
 
+  def platform
+    @platform = params[:platform]
+    console = Console.find_by(:name => @platform)
+    @games = Game.where(:mooch_user_id => nil, :console => console).where.not(:user => current_user).paginate(page: params[:page], per_page: 18)
+    @title = "#{@platform} games"
+    @action = games_mooch_path
+  end
+
 private
   def game_params
     params.permit(:title, :id, :igdb_id, :url)

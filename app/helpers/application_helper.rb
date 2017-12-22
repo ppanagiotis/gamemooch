@@ -7,6 +7,10 @@ module ApplicationHelper
     @resource ||= User.new
   end
 
+  def get_platforms
+    @platforms ||= Console.pluck(:name)
+  end
+
   def devise_mapping
     @devise_mapping ||= Devise.mappings[:user]
   end

@@ -5,8 +5,17 @@
 	<%= image_tag(current_user.gravatar_url(:size => 150, :default => "retro"), :class => "avatar") %>
 	<ul class="sidebar-nav" id="sidebar">
 		<li><%= link_to games_path do %>
-		<span class="sub_icon glyphicon glyphicon-search"></span>Available Games
+		<span class="sub_icon glyphicon glyphicon-search"></span>All available Games
 		<% end %>
+		<li class="dropdown">
+			<a href="#" class="dropdown-toggle" data-toggle="dropdown">Platforms<span class="sub_icon glyphicon glyphicon-link"></span></a>
+			<ul class="dropdown-menu side-dropdown" role="menu">
+                        <% get_platforms %>
+                        <% @platforms.each do |platform| %>
+				<li><%= link_to platform, platform_path(platform)  %></li>
+                        <% end %>
+			</ul>
+		</li>
 		</li>
 		<li class="dropdown">
 			<a href="#" class="dropdown-toggle" data-toggle="dropdown">My Games<span class="sub_icon glyphicon glyphicon-link"></span></a>
