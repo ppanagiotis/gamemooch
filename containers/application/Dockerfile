@@ -14,7 +14,7 @@ ENV APP_DIR /srv/${APP_NAME}
 
 ENV REPO_HOST github.com
 ENV REPO_USER git
-ENV REPO_URL ${REPO_USER}@${REPO_HOST}:ppanagiotis/${APP_NAME}.git
+ENV REPO_URL git://github.com/ppanagiotis/${APP_NAME}.git
 
 EXPOSE ${PORT}
 
