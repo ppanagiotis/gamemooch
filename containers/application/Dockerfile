@@ -4,9 +4,7 @@ MAINTAINER ppanagiotis <ppanagiotis@asilo.gr>
 
 # Install system dependencies
 
-RUN apt-get -qq update
-
-RUN apt-get install -y --fix-missing ruby ruby-dev zlib1g-dev build-essential git default-libmysqlclient-dev nodejs
+RUN apt-get -qq update && apt-get install -y --fix-missing ruby ruby-dev zlib1g-dev build-essential git default-libmysqlclient-dev nodejs ruby-bundler
 
 ENV PORT 3000
 ENV APP_NAME gamemooch
@@ -27,10 +25,7 @@ RUN ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 WORKDIR ${APP_DIR}
 
-
 RUN git clone -q ${REPO_URL} .
-
-RUN gem install rails
 
 RUN bundle install
 
